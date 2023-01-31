@@ -1,0 +1,8 @@
+SELECT id, name, (select lastname, phone FROM contacts WHERE phone != '') FROM account
+SELECT name, project_name__c, (select subject__c, priority__c, status__c FROM salesforce_tickets__r) FROM salesforce_project__c
+SELECT name, type, (select name, amount FROM Opportunities where stagename = 'Closed Won') FROM account WHERE type = 'customer - direct'
+SELECT id, name, project_name__c,(select subject__c, priority__c from salesforce_tickets__r) FROM salesforce_project__c
+SELECT COUNT(mailingcity) FROM contact
+SELECT COUNT(name), leadsource FROM lead GROUP BY leadsource
+SELECT SUM(amount), COUNT(ID), stagename FROM opportunity GROUP BY stagename
+SELECT COUNT(ID), name FROM account GROUP BY name HAVING COUNT(id) > 1

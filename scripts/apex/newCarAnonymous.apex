@@ -1,0 +1,11 @@
+NewCar calc = new NewCar();
+calc.startCar('Toyota', 'Camry');
+calc.accelerate(80);
+calc.checkSpeed();
+calc.brake(55);
+calc.checkSpeed();
+calc.accelerate(10);
+calc.checkSpeed();
+calc.brake(40);
+calc.checkSpeed();
+calc.stopCar();

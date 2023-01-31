@@ -1,0 +1,12 @@
+SELECT id, name phone FROM Account
+SELECT id, name, project_name__c from Salesforce_Project_cc 
+
+SELECT Name, Id, Type, Rating, Industry FROM Account where industry = 'energy' Limit 1
+SELECT Name, Id, Type, Industry, phone FROM Account where phone != null
+SELECT Name, Id, Type, Industry, phone FROM Account where industry != 'energy'
+SELECT Id, Name, Status__c FROM Salesforce_Project__c where status__c != 'new'
+SELECT Id, Name,phone, accountnumber FROM account where phone != null and accountnumber != null
+SELECT Id, Name,phone, accountnumber, website FROM account where (phone != null or website !=null) and accountnumber != null
+SELECT Id, Name,phone, annualrevenue, accountnumber, website FROM account where annualrevenue > 3000000 and annualrevenue <=500000000
+select id, name, phone,AnnualRevenue, createddate, accountnumber, website from account where createddate > last_week
+SELECT id, name, phone, mailingcity from contact where mailingcity in ('Paris', 'burlington', 'lawrence')
