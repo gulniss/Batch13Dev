@@ -7,6 +7,8 @@ public class Calculator {
     }
     
     //parameterized method
+    //parameter: string
+    //it accepts a string
     public void printNewMessage(string msg){
          system.debug(msg);
     }
@@ -31,7 +33,7 @@ public class Calculator {
       integer sum = x+y+z;
       return sum;
     }
- 
+    
     public boolean leapYearCheck(date dt){
       //using date we get year component
       integer year = dt.year();
