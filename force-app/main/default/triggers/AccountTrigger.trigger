@@ -1,10 +1,56 @@
 trigger AccountTrigger on Account (before insert, before update, after insert, after update) {
     system.debug('--- trigger start ----');
 
-    Map<id, account> trgNewMap = trigger.newMap;
-    Map<id, account> trgOldMap = trigger.oldMap;
+        if (Trigger.isBefore) {
+            AccountTriggerHandler.updateDescription(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
+        }   
+ /*   if(trigger.isBefore){
+        for (Account eachAcc : trigger.new) {
+            if (trigger.isInsert && eachAcc.Active__c == 'Yes') {
+                //update description field
+                eachAcc.Description = 'Account is active now. Enjoy buddy!';
+            }
+        if (trigger.isUpdate) {
+        //check if active field is changed from "No" or 'None' to 'Yes'.
+        //how to check if Active field is changed?
+        //oldAccount active field != new Account active field
+        //How to get OldAccount and NewAccount's active field?
 
-    if (trigger.isAfter&& trigger.isUpdate){
+        //New account active field as below
+        string newActive = eachAcc.Active__c;
+
+        //Old account active field
+        //we use oldmap.get(key)
+        Account oldAccount = trigger.oldMap.get(eachAcc.Id);
+        String oldActive = oldAccount.Active__c;
+
+        //check if active field is changed from 'No' or 'None' to 'Yes'.
+        if (newActive !=oldActive && newActive == 'Yes') {
+            eachAcc.Description = 'Account is active now.Enjoy!  Enjoy buddy!';
+        }
+    }
+}
+} */
+   // Map<id, account> trgNewMap = trigger.newMap;
+   // Map<id, account> trgOldMap = trigger.oldMap;
+
+  /*  if (trigger.isBefore && trigger.isUpdate) {
+        //set<id> accIds = trgNewMap.keySet();
+        for (Id eachId : trgNewMap.keySet()) {
+            account newAcc = trgNewMap.get(eachId);
+            account oldAcc = trgOldMap.get(eachId);
+
+            String newWebsite = newAcc.Website;
+            System.debug('newWebsite is ===> ' + newWebsite);
+            String oldWebsite = oldAcc.Website;
+            System.debug('oldWebsite is ===> ' + oldWebsite);
+            if (newWebsite != oldWebsite){
+                System.debug('For account ' + newAcc.Name + ', new WEBSITE is ' + newWebsite);
+            }
+        }
+    }
+*/
+   /* if (trigger.isAfter&& trigger.isUpdate){
         system.debug('==AFTER UPDATE==');
         Set<id> accIds = trgNewMap.keySet();
         set<id> accIdsOld = trgOldMap.keySet();
@@ -18,7 +64,8 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
             System.debug('--for each END--');
 
         }
-/*
+        */
+        /*
     if (Trigger.isBefore && Trigger.isInsert){
         System.debug('====BEFORE INSERT====');
         System.debug('trigger.newMap -> ' + trgNewMap); //null -> ID is null, so Map<id,account> is ALSO NULL.

@@ -1,3 +1,59 @@
+/*      Assignment – 16
+
+   In the class DML2_Assgn
+    o   Create a method createBulkContacts
+   The method creates 5 contacts by name given below.
+   Mark Ruffalo
+   Mark Ruffalo
+   Chris Hemsworth
+   Scarlett Johansson
+   Scarlett Johansson
+    o   Create a method searchForContacts
+   The method must accept one incoming string as parameter.
+   The method should then find any contact that has a last 
+name matching the string that is received as parameter.
+   The method should finally return a list of Contact records of 
+type List that includes the ID and Name fields.
+*/
+public class DML2_Assgn {
+    public static void createBulkContacts() {
+        List<Contact> conList = new List<Contact>();
+        Contact con1 = new Contact();
+        con1.FirstName = 'Mark';
+        con1.LastName = 'Ruffalo';
+        conList.add(con1);
+        Contact con2 = new Contact();
+        con2.FirstName = 'Mark';
+        con2.LastName = 'Ruffalo';
+        conList.add(con2);
+        Contact con3 = new Contact();
+        con3.FirstName = 'Chris';
+        con3.LastName = 'Hemsworth';
+        conList.add(con3);
+        Contact con4 = new Contact();
+        con4.FirstName = 'Scarlett';
+        con4.LastName = 'Johansson';
+        conList.add(con4);
+        Contact con5 = new Contact();
+        con5.FirstName = 'Scarlett';
+        con5.LastName = 'Johansson';
+        conList.add(con5);
+        insert conList; //Insert Contact List
+}
+
+public static List<Contact> searchForContacts(String lastName) {
+    List<Contact> conList = [SELECT Id, Name FROM Contact WHERE LastName = :lastName];
+    return conList;
+}
+}
+
+
+
+
+
+
+
+/*
 public class DML2_Assgn {
     public static void insert_dml() {
        Account acc = new Account();
@@ -52,3 +108,4 @@ public class DML2_Assgn {
         return cnt;
     }
 }
+*/
