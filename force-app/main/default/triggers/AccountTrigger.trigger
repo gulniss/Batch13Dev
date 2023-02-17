@@ -4,6 +4,21 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
     Map<id, account> trgNewMap = trigger.newMap;
     Map<id, account> trgOldMap = trigger.oldMap;
 
+    if (trigger.isAfter&& trigger.isUpdate){
+        system.debug('==AFTER UPDATE==');
+        Set<id> accIds = trgNewMap.keySet();
+        set<id> accIdsOld = trgOldMap.keySet();
+
+        for(id eachID : accIds){
+            System.debug('__for each START --');
+            System.debug('each ID is ' + eachID);
+            account newAcc = trgNewMap.get(eachID);
+            account oldAcc = trgOldMap.get(eachID);
+            System.debug('new acc name is ' + newAcc.Name + ', its old name WAS  ' + oldAcc.Name);
+            System.debug('--for each END--');
+
+        }
+/*
     if (Trigger.isBefore && Trigger.isInsert){
         System.debug('====BEFORE INSERT====');
         System.debug('trigger.newMap -> ' + trgNewMap); //null -> ID is null, so Map<id,account> is ALSO NULL.
@@ -24,8 +39,10 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
         system.debug('trigger.newMap -> ' + trgNewMap); //yes
         system.debug('trigger.oldMap -> ' + trgoldMap); //yes
     }
-
+    }
     system.debug('==== trigger end ====');
+    */
+    
   /*system.debug('--- trigger start ----');
 
     if (Trigger.isafter && Trigger.isUpdate) {
