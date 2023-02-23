@@ -3,7 +3,11 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
 
         if (Trigger.isBefore) {
             AccountTriggerHandler.updateDescription(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
-        }   
+        }  
+        if (trigger.isAfter && trigger.isUpdate) {
+            //call VIP update method
+            AccountTriggerHandler.updateVipForAllContact(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
+        } 
  /*   if(trigger.isBefore){
         for (Account eachAcc : trigger.new) {
             if (trigger.isInsert && eachAcc.Active__c == 'Yes') {
