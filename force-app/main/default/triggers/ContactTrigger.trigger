@@ -5,6 +5,7 @@
    Try updating  an existing contact and see the debugs in Developer 
 console
 */
+/*
 trigger ContactTrigger on Contact (before update, after update) {
     if(Trigger.isBefore){
        System.debug('Before update trigger called');
@@ -13,7 +14,7 @@ trigger ContactTrigger on Contact (before update, after update) {
         system.debug('After update trigger called');
     }
 }
-
+*/
 /*
 trigger ContactTrigger on Contact (before update, after update) {
 if(Trigger.isBefore){
@@ -31,3 +32,10 @@ if(Trigger.isUpdate){
 }
 }
 */
+
+trigger ContactTrigger on Contact (before insert){
+    if (trigger.isBefore && trigger.isInsert) {
+        //call Handler.method 
+        ContactTriggerHandlerWShop.hasSameAdressCheck(trigger.New);
+    }
+}

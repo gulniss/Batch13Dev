@@ -1,18 +1,20 @@
+
 trigger AccountTrigger on Account (before insert, before update, after insert, after update) {
      //check if account trigger is enabled
-     TriggerSwitch__c ts = TriggerSwitch__c.getInstance('account');
+/*     TriggerSwitch__c ts = TriggerSwitch__c.getInstance('account');
     if(!ts.enabled__c){
         return;
     }
     system.debug('--- trigger start ----');
-
+*/
         if (Trigger.isBefore) {
             AccountTriggerHandler.updateDescription(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
         }  
         if (trigger.isAfter && trigger.isUpdate) {
             //call VIP update method
             AccountTriggerHandler.updateVipForAllContact(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
-        } 
+        }
+ 
  /*   if(trigger.isBefore){
         for (Account eachAcc : trigger.new) {
             if (trigger.isInsert && eachAcc.Active__c == 'Yes') {
@@ -221,5 +223,6 @@ trigger AccountTrigger on Account (before insert, before update, after insert, a
         system.debug('after insert account trigger called.');
     }
     */
-   
+
 }
+
