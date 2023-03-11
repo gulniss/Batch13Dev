@@ -9,7 +9,12 @@
     }
 }
 */
-trigger SalesforceProjectTrigger on Salesforce_Project__c (before insert, after insert, before update) {
+trigger SalesforceProjectTrigger on Salesforce_Project__c (before insert, after insert, before update, after update) {
+    //check if salesforceproject's trigger is enabled
+    TriggerSwitch__c ts = TriggerSwitch__c.getInstance('salesforce_project__c');
+    if(!ts.enabled__c){
+        return;
+    }
 
     if (Trigger.isAfter && Trigger.isInsert) {
         system.debug('calling future method now...');
@@ -20,6 +25,10 @@ trigger SalesforceProjectTrigger on Salesforce_Project__c (before insert, after 
     }
     if(Trigger.isBefore && Trigger.isUpdate){
         //call method to validate ticket completion.
-        SPTriggerHandler.validateProjectCompletion(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
+        //SPTriggerHandler.validateProjectCompletion(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
+    }
+    if(Trigger.isAfter && Trigger.isUpdate) {
+        //call method1
+        SPTriggerHandler.projectStatusChange(Trigger.New, Trigger.Old, Trigger.NewMap, Trigger.OldMap);
     }
 }

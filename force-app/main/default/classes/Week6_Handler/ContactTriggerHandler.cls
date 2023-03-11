@@ -3,6 +3,7 @@ public class ContactTriggerHandler {
                                         List<contact> conTriggerOld,
                                         Map<id, contact> conTriggerNewMap,
                                         Map<id, contact> conTriggerOldMap) {
+                                            
         //validate if contact's lead source WAS Partner Referral
         //one by one contact using for each loop of trigger.new
           //why in trigger.new?
@@ -14,6 +15,7 @@ public class ContactTriggerHandler {
             if ( conTriggerOldMap.get(eachContact.Id).LeadSource == 'Partner Referral' ) {
                 // addError CAN be done on trigger.new  and trigger.newMap  ONLY
                 eachContact.addError('Partner Referral contacts cannot be changed.');
+
             }
         }
     }
@@ -21,10 +23,12 @@ public class ContactTriggerHandler {
                                             List<contact> conTriggerOld,
                                             Map<id, contact> conTriggerNewMap,
                                             Map<id, contact> conTriggerOldMap) {
+                                                string validationError = system.label.contactValidation2;
             for (Contact eachContact : conTriggerNew) {
                 //check if LeadSource is changed.
                 if (eachContact.LeadSource != conTriggerOldMap.get(eachContact.Id).LeadSource) {
-                    eachContact.LeadSource.addError('CANNOT CHANGE LEADSOURCE. PLEEEEAAASE USER!');
+                    //eachContact.LeadSource.addError('CANNOT CHANGE LEADSOURCE. PLEEEEAAASE USER!');
+                    eachContact.LeadSource.addError(validationError);
                 } //Q.1 contactValidation2 method does not work properly, if I create Contact without any value in Lead Source field (Lead Source = None) and then try to update to value from picklist it give error msg.
             }
         }

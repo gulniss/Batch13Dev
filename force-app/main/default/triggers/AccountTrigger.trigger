@@ -1,4 +1,9 @@
 trigger AccountTrigger on Account (before insert, before update, after insert, after update) {
+     //check if account trigger is enabled
+     TriggerSwitch__c ts = TriggerSwitch__c.getInstance('account');
+    if(!ts.enabled__c){
+        return;
+    }
     system.debug('--- trigger start ----');
 
         if (Trigger.isBefore) {
