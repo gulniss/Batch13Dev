@@ -1,0 +1,18 @@
+<!--DISPLAY ARRAYS AND OBJECTS-->
+<template>
+    <lightning-card  variant="Narrow"  title="Template Looping" icon-name="standard:account">
+        <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+        <div class="slds-var-m-around_medium">
+            <template for:each={strList} for:item="str" for:index="indx">
+               <div key={str}><br>{str} {indx}</br></div> 
+            </template>
+        </div>
+        <div class="slds-var-m-around_medium">
+            <template for:each={students} for:item="student">
+                <div key={student}> <br> </div>
+                Student Name : {student.name} <br key={student}> 
+                Roll Number : {student.rollNumber}
+            </template>       
+        </div>
+    </lightning-card>
+</template>

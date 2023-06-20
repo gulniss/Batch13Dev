@@ -1,0 +1,18 @@
+<template>
+    <lightning-card  title="Query Selectors">
+        <div class="slds-var-m-around_medium">
+            <h1>Hello, I'm a heading!</h1>
+            <template for:each={colors} for:item="color">
+                <div key={color} class="color">{color}</div>
+            </template>
+
+            <div class="child" lwc:dom="manual"></div>
+
+            <!--button-->
+            <lightning-button 
+            variant="brand" 
+            label="Click me!" 
+            onclick={clickHandler}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

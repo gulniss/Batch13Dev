@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Opportunity Form" icon-name="standard:opportunity">
+        <div class="slds-var-m-around_medium">
+            <form>
+                <lightning-input type="text" name="Name" label="Opportunity Name" value={nameValue} onchange={handleChange}></lightning-input>
+
+                <lightning-combobox
+                    name="Type"
+                    label="Type"
+                    value={typeValue}
+                    options={typeOptions}
+                    onchange={handleChange}></lightning-combobox>
+
+                    <lightning-combobox
+                    name="StageName"
+                    label="Stage"
+                    value={stageValue}
+                    options={stageOptions}
+                    onchange={handleChange}></lightning-combobox>
+
+                <lightning-input type="number" name="Amount" label="Amount" value={amountValue} onchange={handleChange}></lightning-input>
+                <lightning-input type="date" name="CloseDate" label="Close Date" value={dateValue} onchange={handleChange}></lightning-input>
+
+                <lightning-button class="slds-align_absolute-center slds-var-m-top_medium" label="Update" variant="brand" onclick={updateHandler}></lightning-button>
+                </form>
+
+        </div>
+    </lightning-card>
+</template>

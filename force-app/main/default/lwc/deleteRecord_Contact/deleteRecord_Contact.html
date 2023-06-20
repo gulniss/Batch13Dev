@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Delete Record - Contact">
+        <div class="slds-var-m-around_medium">
+            <lightning-input label="You are going to be deleted :)" placeholder="Enter record id..." onchange={changeHandler}></lightning-input>
+            <div class="slds-align_absolute-center slds-var-m-top_small" >
+                <lightning-button label="Reset" onclick={resetForm}></lightning-button>
+                <lightning-button variant="brand" label="Delete" class="slds-var-m-left_x-small" onclick={deleteRecordContact}></lightning-button>
+            </div>
+            
+        </div>
+    </lightning-card>
+</template>

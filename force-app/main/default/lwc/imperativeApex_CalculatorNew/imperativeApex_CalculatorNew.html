@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Imperative Calculator">
+         <div class="slds-var-m-around_medium">
+            <lightning-input label="A" class="slds-var-m-bottom_small"  onchange={updateA} ></lightning-input>
+            <lightning-input label="B" class="slds-var-m-bottom_small"  onchange={updateB} ></lightning-input>
+            <div class="slds-align_absolute-center">
+            <lightning-button label="Add" class="slds-button slds-var-m-right_xx-small" onclick={calcAB} name="Add"></lightning-button> 
+            <lightning-button label="Sub" class="slds-button slds-var-m-right_xx-small" onclick={calcAB} name="Sub"></lightning-button>
+            <lightning-button label="Multiply" class="slds-button slds-var-m-right_xx-small" onclick={calcAB} name="Multiply"></lightning-button>
+            <lightning-button label="Divide" class="slds-button slds-var-m-right_xx-small" onclick={calcAB} name="Divide"></lightning-button>
+            </div>
+            <br/>
+            <template lwc:if={imperativeResult}>                
+            <div class="slds-text-align_center">Imperative Result = {imperativeResult}</div>   
+            </template> 
+        </div>
+    </lightning-card>
+</template>

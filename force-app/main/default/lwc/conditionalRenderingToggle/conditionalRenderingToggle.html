@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Toggle - Conditional Rendering">
+        <div></div> 
+        <div class="slds-form-element">
+            <label class="slds-checkbox_toggle slds-grid">
+            <span class="slds-form-element__label slds-m-bottom_none">Show Message</span>
+            <input type="checkbox" name="checkbox-toggle-3" value="checkbox-toggle-3" aria-describedby="checkbox-toggle-3" onchange={toggleHandler}/>
+            <span id="checkbox-toggle-3" class="slds-checkbox_faux_container" aria-live="assertive">
+            <span class="slds-checkbox_faux"></span>
+            <span class="slds-checkbox_on">On</span>
+            <span class="slds-checkbox_off">Off</span>
+            </span>
+            </label>
+            </div>
+            <template lwc:if={showContent}>
+                <div class="textColor"><strong>Hello, I am ON :))</strong></div>
+            </template>
+            <template lwc:else>
+                <div class="textColor"><b>Hello, I am OFF :((</b></div>
+            </template>
+    </lightning-card>
+</template>

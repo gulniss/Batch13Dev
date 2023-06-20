@@ -24,4 +24,28 @@ public with sharing class RestCalloutsTest {
         System.assertEquals(200, response.getStatusCode());
         System.assertEquals('OK', response.getStatus());
     }
+
+    @isTest 
+    private static void postEmployeeTest() {
+        RestCalloutsMock mock =new RestCalloutsMock();
+        Test.setMock(HttpCalloutMock.class, mock);
+
+        HttpResponse response = RestCallout.postEmployee();
+
+        System.assertEquals(200, response.getStatusCode());
+        System.assertEquals('OK', response.getStatus());
+    }
+
+    @isTest 
+    private static void deleteEmployeeTest() {
+        RestCalloutsMock mock = new RestCalloutsMock();
+        Test.setMock(HttpCalloutMock.class, mock);
+
+        test.startTest();
+        HttpResponse response = RestCallout.deleteEmployee();
+        test.stopTest();
+
+        system.assertEquals(200, response.getStatusCode());
+        System.assertEquals('{"error":0,"msg":"data deleted successfully","data":[]}', response.getBody());
+    }
 }

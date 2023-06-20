@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Record Form - Account" icon-name="standard:account">
+        <div class="slds-var-m-around_medium">
+            <lightning-record-form 
+                object-api-name={objName}
+                record-id={recordId}
+                fields={fields}
+                columns="2"
+                mode="edit"
+                onsuccess={successHandler}
+                onerror={errorHandler}>                >
+            </lightning-record-form>
+        </div>
+    </lightning-card>
+</template>

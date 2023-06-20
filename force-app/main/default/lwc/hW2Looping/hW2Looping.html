@@ -1,0 +1,19 @@
+<template>
+    <lightning-card  variant="Narrow"  title="HW Template Looping" icon-name="custom:custom11">
+        <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+        <div class="textColor slds-var-m-around_medium">
+            <template for:each={animals} for:item="animal" for:index="indx">
+               <div key={animal}>{animal} {indx}</div> 
+            </template>
+        </div>
+        <div class="slds-var-m-around_medium">
+            <!--comment here-->
+            <template for:each={toyotaCars} for:item="car">
+                <div key={car}> <br> </div>
+                Car Model : {car.Model} <br key={car}> 
+                ModelYear : {car.ModelYear} <br key={car}>
+                Powertrain : {car.Powertrain}
+            </template>       
+        </div>
+    </lightning-card>
+</template>

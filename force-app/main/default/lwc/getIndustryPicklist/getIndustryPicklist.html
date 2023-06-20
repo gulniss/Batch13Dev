@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="GET PICKLIST VALUES" icon-name="standard:account">
+        <div class="slds-var-m-around_medium">
+            <lightning-combobox
+                label="Select your industry"
+                value={selectedIndustry}
+                options={industryOptions}
+                onchange={industryChangeHandler}></lightning-combobox>
+                <template lwc:if={selectedIndustry}>
+                <div class="slds-var-m-top_small">
+                    Selected Industry is : <strong>{selectedIndustry}</strong>
+                </div>
+                </template>
+        </div>
+
+        <div class="slds-var-m-around_medium">
+            <lightning-combobox
+                label="Account Rating"
+                value={selectedRating}
+                options={ratingOptions}
+                onchange={ratingChangeHandler} ></lightning-combobox>
+                <template lwc:if={selectedRating}>
+                    <div class="slds-var-m-top_small">
+                        Selected Rating is <strong> {selectedRating}</strong>
+                    </div>
+                </template>
+        </div>
+    </lightning-card>
+</template>

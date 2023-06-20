@@ -1,0 +1,83 @@
+<template>
+    <lightning-card title="Record View And Edit Form - Case" icon-name="standard:case">
+            
+        <div class="slds-box slds-p-around_none slds-var-m-top_x-small slds-var-m-around_medium slds-m-horizontal_none">
+            <lightning-layout>
+                <lightning-layout-item flexibility="auto" padding="around-small">
+                    <div class="custom-box slds-box slds-p-around_medium slds-text-align_left"><span><!--Lightning Record Edit FORM-->
+                        <div class="slds-var-m-around_medium">
+                            <lightning-record-edit-form
+                            object-api-name={objName}
+                            record-id={recordId}>
+                                    <lightning-input-field field-name={fields.Subject}> </lightning-input-field>
+                                    <lightning-input-field field-name={fields.Status}> </lightning-input-field>
+                                    <lightning-input-field field-name={fields.CaseOrigin}> </lightning-input-field>
+                        
+                                    <div class="slds-align_absolute-center">
+                                        <lightning-button variant="neutral" type="reset" label="Cancel" class="slds-var-m-right_small">
+                                        </lightning-button>   
+                                            <lightning-button variant="brand" type="submit" label="Save">
+                                            </lightning-button>
+                                        </div>
+                            </lightning-record-edit-form>
+                        </div></span></div>
+                </lightning-layout-item>
+
+                <lightning-layout-item flexibility="auto" padding="around-medium">
+                    <div class="custom-box slds-box slds-var-p-around_medium slds-text-align_left"><!--Lightning Record VIEW FORM-->
+                        <div class="slds-var-m-around_medium">
+                            <lightning-record-view-form
+                            object-api-name={objName}
+                            record-id={recordId}>
+                                
+                                    <lightning-output-field field-name={fields.Subject}> </lightning-output-field>
+                                    <lightning-output-field field-name={fields.Status}> </lightning-output-field>
+                                    <lightning-output-field field-name={fields.CaseOrigin}> </lightning-output-field>  
+                                    
+                            </lightning-record-view-form>
+                        </div></div>
+                </lightning-layout-item>
+                
+            </lightning-layout>
+        </div> 
+    
+    
+
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+            <span><!--Lightning Record Edit FORM-->
+        <div class="slds-var-m-around_medium">
+            <lightning-record-edit-form
+            object-api-name={objName}
+            record-id={recordId}>
+                    <lightning-input-field field-name={fields.Subject}> </lightning-input-field>
+                    <lightning-input-field field-name={fields.Status}> </lightning-input-field>
+                    <lightning-input-field field-name={fields.CaseOrigin}> </lightning-input-field>
+        
+                    <div class="slds-align_absolute-center">
+                        <lightning-button variant="neutral" type="reset" label="Cancel" class="slds-var-m-right_small">
+                        </lightning-button>   
+                            <lightning-button variant="brand" type="submit" label="Save">
+                            </lightning-button>
+                        </div>
+            </lightning-record-edit-form>
+        </div></span>
+            </div>
+
+            <div class="slds-col">
+            <span><!--Lightning Record VIEW FORM-->
+        <div class="slds-var-m-around_medium">
+            <lightning-record-view-form
+            object-api-name={objName}
+            record-id={recordId}>
+                <div class="slds-box">
+                    <lightning-output-field field-name={fields.Subject}> </lightning-output-field>
+                    <lightning-output-field field-name={fields.Status}> </lightning-output-field>
+                    <lightning-output-field field-name={fields.CaseOrigin}> </lightning-output-field>  
+                </div>    
+            </lightning-record-view-form>
+        </div></span>
+            </div>
+            </div>      
+    </lightning-card>
+</template>
