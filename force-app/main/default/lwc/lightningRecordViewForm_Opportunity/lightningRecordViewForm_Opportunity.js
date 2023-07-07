@@ -1,4 +1,4 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
 //import object
 import OPP_OBJ from '@salesforce/schema/Opportunity';
@@ -20,5 +20,6 @@ export default class LightningRecordViewForm_Opportunity extends LightningElemen
     }
 
     objName= OPP_OBJ;
+    //@api recordId;
     recordId='006Dn000008c9YHIAY';
 }
